@@ -17,9 +17,9 @@ public class App
         System.out.println( "Hello World!" );
         
         Alien alien = new Alien();
-        alien.setAid(101);
-        alien.setAname("Snigdha");
-        alien.setColor("bown");
+        alien.setAid(103);
+        alien.setAname("Rush");
+        alien.setColor("Brown");
         
         Configuration con = new Configuration().configure().addAnnotatedClass(Alien.class);
         SessionFactory sf = con.buildSessionFactory();
