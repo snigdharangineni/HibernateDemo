@@ -11,8 +11,8 @@ import jakarta.persistence.Transient;
 public class Alien { //POJO 
 	@Id
 	private int aid;
-	private String aname;
-	@Column(name="aline_color")
+	private AlienName aname;
+	//@Column(name="aline_color")
 	private String color;
 	
 	public int getAid() {
@@ -21,10 +21,10 @@ public class Alien { //POJO
 	public void setAid(int aid) {
 		this.aid = aid;
 	}
-	public String getAname() {
+	public AlienName getAname() {
 		return aname;
 	}
-	public void setAname(String string) {
+	public void setAname(AlienName string) {
 		this.aname = string;
 	}
 	public String getColor() {

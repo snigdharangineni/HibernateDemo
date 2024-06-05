@@ -16,10 +16,15 @@ public class App
     {
         System.out.println( "Hello World!" );
         
+        AlienName an = new AlienName();
+        an.setFname("Snigdha");
+        an.setMname("Rao");
+        an.setLname("Rangineni");
+        
         Alien alien = new Alien();
-//        alien.setAid(104);
-//        alien.setAname("Ram");
-//        alien.setColor("Dusky");
+        alien.setAid(110);
+        alien.setColor("Dusky");
+        alien.setAname(an);
         
         Configuration con = new Configuration().configure().addAnnotatedClass(Alien.class);
         SessionFactory sf = con.buildSessionFactory();
@@ -28,7 +33,8 @@ public class App
         
         org.hibernate.Transaction tx = session.beginTransaction();
 
-        alien = session.get(Alien.class, 104);
+        session.save(alien);
+        //alien = session.get(Alien.class, 104);
         tx.commit();
         
         System.out.println(alien);
