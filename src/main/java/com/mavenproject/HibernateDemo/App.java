@@ -29,15 +29,22 @@ public class App
         Configuration con = new Configuration().configure().addAnnotatedClass(Alien.class);
         SessionFactory sf = con.buildSessionFactory();
         		
-        Session session = sf.openSession();
+        Session session1 = sf.openSession();
         
-        org.hibernate.Transaction tx = session.beginTransaction();
+        org.hibernate.Transaction tx = session1.beginTransaction();
 
-        session.save(alien);
-        //alien = session.get(Alien.class, 104);
+        //session1.save(alien);
+        alien = session1.get(Alien.class, 110);
         tx.commit();
         
         System.out.println(alien);
+        session1.close();
+        
+        Session session2 = sf.openSession();
+        session2.beginTransaction();
+        alien = session2.get(Alien.class, 110);
+        System.out.println(alien);
+        session2.close();
         
     }
 }

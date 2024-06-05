@@ -1,13 +1,20 @@
 package com.mavenproject.HibernateDemo;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import jakarta.persistence.Transient;
+
+import javax.persistence.Cacheable;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
+
 
 @Entity
 @Table(name="alien_table")
+@Cacheable
+@Cache(usage=CacheConcurrencyStrategy.READ_ONLY)
 public class Alien { //POJO 
 	@Id
 	private int aid;

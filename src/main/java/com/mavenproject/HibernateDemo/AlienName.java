@@ -1,8 +1,17 @@
 package com.mavenproject.HibernateDemo;
 
-import jakarta.persistence.Embeddable;
+
+
+import javax.persistence.Cacheable;
+import javax.persistence.Embeddable;
+
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 
 @Embeddable
+@Cacheable
+@Cache(usage=CacheConcurrencyStrategy.READ_ONLY)
 public class AlienName {
 	private String fname;
 	private String lname;
