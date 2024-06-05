@@ -11,7 +11,6 @@ import jakarta.persistence.Transient;
 public class Alien { //POJO 
 	@Id
 	private int aid;
-	@Transient //doesn't store this data in table 
 	private String aname;
 	@Column(name="aline_color")
 	private String color;
@@ -35,6 +34,9 @@ public class Alien { //POJO
 		this.color = color;
 	}
 	
-	
+	@Override
+	public String toString() {
+		return "Alien [aid=" + aid + ", aname=" + aname + ", color=" + color + "]";
+	}
 	
 }
